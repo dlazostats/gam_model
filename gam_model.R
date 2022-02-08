@@ -4,7 +4,9 @@ library(gratia)
 library(psych)
 library(mgcv)
 library(dplyr)
+library(tidymv)
 library(caret)
+library(ggplot2)
 library(bartMachine)
 
 # Functions
@@ -37,6 +39,9 @@ summary(m)
 # Plot
 draw(m)
 sm <- smooth_estimates(m) #Data to draw plots
+
+plot_smooths(model = m,series = x2) +
+  theme(legend.position = "top")
 
 # Model diagnostics
 appraise(m)
